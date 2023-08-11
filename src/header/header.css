@@ -2,26 +2,40 @@ header{
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    overflow-x: hidden;
+    z-index: -1;
 }
 
-button{
+button, a{
     background-color: transparent;
     border: none;
     cursor: pointer;
+    text-decoration: none;
+    color: var(--hamburguer-color);
+    letter-spacing: 1.5px;
+    font-weight: bold;
 }
 
 nav{
     display: none;
 }
 
-a {
-    background-color: transparent;
+.logo {
+    width: 30%;
+    position: absolute;
+    top: 1%;
+    left: 0%;
 }
 
-.header-content {
-    position: absolute;
-    top: 2%;
-    left: 2%;
+.logo img {
+    max-width:130px;
+    max-height:130px;
+    width: auto;
+    height: auto;
+    border-radius: 100%;
+    aspect-ratio: 3/2;
+    object-fit: contain;
+    z-index: 0;
 }
 
 .bar1, .bar2, .bar3 {
@@ -35,9 +49,9 @@ a {
 
 .hamburguer {
     position: absolute;
-    top: 1%;
-    right: 5%;
-    z-index: 1;
+    top: 3%;
+    right: 4%;
+    z-index: 2;
 }
 
 .hamburguer.isChecked .bar1 {
@@ -62,6 +76,68 @@ a {
     text-align: center;
     background-color: var(--mental-green);
     gap: 24px;
-    overflow: hidden;
-    z-index: 0;
+    animation: animate 1s ease-in-out;
+    z-index: 1;
+    position: relative;
+}
+
+.separator{
+    height: 1px;
+    width: 100%;
+    background-color: var(--light-gray);
+    position: absolute;
+    top: 100px;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+
+    @keyframes animate{
+    0%{
+        transform:translateX(100%);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
+
+@media(min-width: 768px){ 
+
+    header{
+        height: 105px;
+        justify-content: space-around;
+    }
+
+    nav {
+        display: block;
+    }
+
+    nav a {
+        margin: 0 15px;
+    }
+
+    .hamburguer {
+        display: none;
+    }
+    
+    .header-content {
+        display: flex;
+        justify-content: space-between;
+        width: 80%;
+    }
+
+    .logo{
+        position: unset;
+        top: 2%;
+    }
+
+    .menu-nav{
+        display: flex;
+        align-items: center;
+    }
+
+    .logo img {
+        max-width:150px;
+        max-height:100px;
+        width: auto;
+        height: auto;
+    }
 }
