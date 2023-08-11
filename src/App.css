@@ -4,6 +4,8 @@
   --light-gray:#E6E6E6;
   --white:#FFFFFF;
   --black:#000000;
+  --div-color-one: hsla(0, 48%, 82%, 0.668);
+  --div-color-two: hsla(85, 32%, 66%, 0.668);
   --hamburguer-color: #333;
 }
 
